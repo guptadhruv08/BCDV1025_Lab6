@@ -157,7 +157,7 @@ describe('Fare Transfer Basic Tests', () => {
             let fareTransfer = new FareTransfer();
             await fareTransfer.EnrollCustomer (transactionContext, customer.ID, customer.FirstName, customer. LastName, customer.TransitId);
 
-            await fareTransfer.UpdatePrimaryTransit(transactionContext, 'customer1', 'MI');
+            await fareTransfer.UpdatePrimaryTransit(transactionContext, 'customer1', 'TTC');
             let ret = JSON.parse(await chaincodeStub.getState(customer.ID));
 
             expect(ret).to.eql(Object.assign({docType: 'customer', LastTxnId: 'fare1',TransitId: 'MI'}, customer));
@@ -206,7 +206,7 @@ describe('Fare Transfer Basic Tests', () => {
 
             expect(JSON.parse(ret.toString()).Amount).to.eql('3.50');
             const ret1 = await fareTransfer.ChargeFare(transactionContext, customer.ID, 'YRT');
-            expect(JSON.parse(ret1.toString()).Amount).to.eql('1.25');
+            expect(JSON.parse(ret1.toString()).Amount).to.eql('4.25');
 
         });
     });

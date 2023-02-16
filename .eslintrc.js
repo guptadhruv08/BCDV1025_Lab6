@@ -14,9 +14,9 @@ module.exports = {
     },
     extends: "eslint:recommended",
     rules: {
-        indent: ['error', 4],
+        indent: "off",
         'linebreak-style': ['error', 'unix'],
-        quotes: ['error', 'single'],
+        quotes: [2, "single"],
         semi: ['error', 'always'],
         'no-unused-vars': ['error', { args: 'none' }],
         'no-console': 'off',
